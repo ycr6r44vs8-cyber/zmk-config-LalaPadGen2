@@ -43,6 +43,76 @@
             #binding-cells = <0>;
             bindings = <&mo 1>, <&mo 2>;
         };
+
+        td_q1: td_q1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_Q1";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&kp N1>;
+        };
+
+        td_w2: td_w2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_W2";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp N2>;
+        };
+
+        td_e3: td_e3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_E3";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&kp N3>;
+        };
+
+        td_r4: td_r4 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_R4";
+            #binding-cells = <0>;
+            bindings = <&kp R>, <&kp N4>;
+        };
+
+        td_t5: td_t5 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_T5";
+            #binding-cells = <0>;
+            bindings = <&kp T>, <&kp N5>;
+        };
+
+        td_a6: td_a6 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_A6";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp N6>;
+        };
+
+        td_s7: td_s7 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_S7";
+            #binding-cells = <0>;
+            bindings = <&kp S>, <&kp N7>;
+        };
+
+        td_d8: td_d8 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_D8";
+            #binding-cells = <0>;
+            bindings = <&kp D>, <&kp N8>;
+        };
+
+        td_f9: td_f9 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_F9";
+            #binding-cells = <0>;
+            bindings = <&kp F>, <&kp N9>;
+        };
+
+        td_g0: td_g0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_G0";
+            #binding-cells = <0>;
+            bindings = <&kp G>, <&kp N0>;
+        };
     };
 
     combos {
@@ -65,8 +135,8 @@
         DEFAULT_LAYER {
             display-name = "Default";
             bindings = <
-&kp Q              &kp W      &kp E         &kp R      &kp T                                     &kp Y      &kp U     &kp I           &kp O           &kp P
-&kp A              &kp S      &kp D         &kp F      &kp G                                     &kp H      &kp J     &kp K           &kp L           &mt2 EQUAL MINUS
+&td_q1             &td_w2     &td_e3        &td_r4     &td_t5                                    &kp Y      &kp U     &kp I           &kp O           &kp P
+&td_a6             &td_s7     &td_d8        &td_f9     &td_g0                                    &kp H      &kp J     &kp K           &kp L           &mt2 EQUAL MINUS
 &mt2 LEFT_SHIFT Z  &kp X      &kp C         &kp V      &kp B                                     &kp N      &kp M     &kp COMMA       &kp PERIOD      &kp SLASH
 &kp LCTRL          &kp LWIN   &kp LEFT_ALT  &mo 1      &kp SPACE  &kp LEFT_SHIFT  &kp BACKSPACE  &kp ENTER  &mo 2     &kp LANGUAGE_2  &kp LANGUAGE_1  &kp BACKSLASH
                    &none      &kp RIGHT     &kp DOWN   &kp LEFT   &kp UP          &kp UP         &kp LEFT   &kp DOWN  &kp RIGHT       &none
