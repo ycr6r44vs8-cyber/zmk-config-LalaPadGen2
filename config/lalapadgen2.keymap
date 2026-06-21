@@ -221,6 +221,35 @@
         };
     };
 
+    macros {
+        // （）を入力してカーソルを括弧内に移動
+        macro_paren: macro_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(N9)>,
+                <&kp LS(N0)>,
+                <&kp LEFT>;
+        };
+
+        // 「」を入力してカーソルを括弧内に移動
+        macro_kagi: macro_kagi {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LBKT>,
+                <&kp RBKT>,
+                <&kp LEFT>;
+        };
+
+        // ・(中黒)を入力 - macOS日本語IMEで / を打つと・になる
+        macro_nakaguro: macro_nakaguro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SLASH>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -246,52 +275,52 @@
         DEFAULT_LAYER {
             display-name = "Default";
             bindings = <
-&td_q1 N1 Q    &td_w2 N2 W   &td_e3 N3 E    &td_r4 N4 R    &td_t5 N5 T                             &kp Y       &kp U     &kp I                    &kp O           &kp P
-&td_a6 N6 A    &td_s7 N7 S   &td_d8 N8 D    &td_f9 N9 F    &td_g0 N0 G                             &kp H       &kp J     &kp K                    &kp L           &mt2 EQUAL MINUS
-&td_z EQUAL Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N       &kp M     &td_comma_dot DOT COMMA  &kp PERIOD      &kp EXCLAMATION
-&kp LSHFT      &kp LEFT_GUI  &kp RIGHT_ALT  &mo 1          &to 2         &kp SPACE  &kp BACKSPACE  &kp RETURN  &mo 2     &kp LANGUAGE_2           &kp LANGUAGE_1  &kp QUESTION
-               &none         &kp RIGHT      &kp DOWN       &kp LEFT      &kp UP     &kp UP         &kp LEFT    &kp DOWN  &kp RIGHT                &none
-&mkp LCLK      &mkp RCLK     &mkp MCLK                                                                                   &mkp LCLK                &mkp RCLK       &mkp MCLK
-&mkp MB4       &mkp MB5      &kp LG(TAB)    &kp LG(D)      &kp LCTRL                               &mkp MB4    &mkp MB5  &kp LG(TAB)              &kp LG(D)       &kp LCTRL
+&td_q1 N1 Q &td_w2 N2 W &td_e3 N3 E &td_r4 N4 R &td_t5 N5 T &kp Y &kp U &kp I &kp O &kp P
+&td_a6 N6 A &td_s7 N7 S &td_d8 N8 D &td_f9 N9 F &td_g0 N0 G &kp H &kp J &kp K &kp L &mt2 EQUAL MINUS
+&td_z EQUAL Z &td_x PLUS X &td_c MINUS C &td_v ASTRK V &td_b FSLH B &kp N &kp M &td_comma_dot DOT COMMA &kp PERIOD &kp EXCLAMATION
+&kp LSHFT &kp LEFT_GUI &kp RIGHT_ALT &mo 1 &to 2 &kp SPACE &kp BACKSPACE &kp RETURN &mo 2 &kp LANGUAGE_2 &kp LANGUAGE_1 &kp QUESTION
+&none &kp RIGHT &kp DOWN &kp LEFT &kp UP &kp UP &kp LEFT &kp DOWN &kp RIGHT &none
+&mkp LCLK &mkp RCLK &mkp MCLK &mkp LCLK &mkp RCLK &mkp MCLK
+&mkp MB4 &mkp MB5 &kp LG(TAB) &kp LG(D) &kp LCTRL &mkp MB4 &mkp MB5 &kp LG(TAB) &kp LG(D) &kp LCTRL
             >;
         };
 
         SECONDARY_LAYER {
             display-name = "secondary_layer";
             bindings = <
-&kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR         &kp PERCENT                            &kp CARET         &kp AMPERSAND      &kp ASTERISK     &trans           &trans
-&kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans                                 &trans            &kp KP_NUMBER_4    &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
-&kp SEMICOLON         &kp F7                 &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                   &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
-&trans                &trans                 &trans            &trans             &trans                &trans  &kp DEL  &trans            &trans             &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_DIVIDE
-                      &trans                 &trans            &trans             &trans                &trans  &trans   &trans            &trans             &trans           &trans
-&trans                &trans                 &trans                                                                                                           &trans           &trans           &trans
-&kp LC(LG(LEFT))      &kp LC(LG(RIGHT))      &trans            &trans             &trans                                 &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans           &trans           &trans
+&kp EXCLAMATION &kp AT_SIGN &kp HASH &kp DOLLAR &kp PERCENT &kp CARET &kp AMPERSAND &kp ASTERISK &trans &trans
+&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_BRACKET &kp RIGHT_BRACKET &trans &trans &kp KP_NUMBER_4 &kp KP_NUMBER_5 &macro_paren &macro_kagi
+&kp SEMICOLON &macro_nakaguro &kp F8 &kp LANG2 &kp LS(LG(NUMBER_4)) &trans &kp KP_NUMBER_1 &kp KP_NUMBER_2 &kp KP_NUMBER_3 &kp KP_ASTERISK
+&trans &trans &trans &trans &trans &trans &kp DEL &trans &trans &kp KP_NUMBER_0 &kp KP_DOT &kp KP_DIVIDE
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans
+&kp LC(LG(LEFT)) &kp LC(LG(RIGHT)) &trans &trans &trans &kp LC(LG(LEFT)) &kp LC(LG(RIGHT)) &trans &trans &trans
             >;
         };
 
         TERTIARY_LAYER {
             display-name = "tertiary_layer";
             bindings = <
-&kp Q         &kp W             &kp E             &kp R   &kp T                      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5
-&kp A         &kp S             &kp D             &kp F   &kp G                      &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0
-&kp Z         &kp X             &kp C             &kp V   &kp B                      &kp N         &kp LANG1     &trans        &mkp MB5      &kp PAUSE_BREAK
-&kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_COMMAND  &trans  &to 0   &kp SPACE  &trans  &trans        &trans        &trans        &trans        &trans
-              &trans            &trans            &trans  &trans  &trans     &trans  &trans        &trans        &trans        &trans
-&trans        &trans            &trans                                                                           &trans        &trans        &trans
-&trans        &trans            &trans            &trans  &trans                     &trans        &trans        &trans        &trans        &trans
+&kp Q &kp W &kp E &kp R &kp T &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp N5
+&kp A &kp S &kp D &kp F &kp G &kp NUMBER_6 &kp N7 &kp N8 &kp N9 &kp N0
+&kp Z &kp X &kp C &kp V &kp B &kp N &kp LANG1 &trans &mkp MB5 &kp PAUSE_BREAK
+&kp LEFT_ALT &kp LEFT_CONTROL &kp LEFT_COMMAND &trans &to 0 &kp SPACE &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
             >;
         };
 
         SYSTEM_LAYER {
             display-name = "system_layer";
             bindings = <
-&kp F1   &kp F2   &kp F3   &kp F4   &kp F5                   &out OUT_TOG                   &bt BT_SEL 0                   &bt BT_SEL 1                   &bt BT_SEL 2                   &bt BT_SEL 3
-&kp F6   &kp F7   &kp F8   &kp F9   &kp F10                  &sys_reset                     &bootloader                    &bt BT_CLR                     &bt BT_CLR_ALL                 &trans
-&kp F11  &kp F12  &kp F13  &kp F14  &kp F15                  &zip_dyn_scale ZDS_XY ZDS_INC  &zip_dyn_scale ZDS_XY ZDS_DEC  &zip_dyn_scale ZDS_SC ZDS_INC  &zip_dyn_scale ZDS_SC ZDS_DEC  &zip_dyn_scale ZDS_ALL ZDS_RST
-&trans   &trans   &trans   &trans   &trans   &trans  &trans  &trans                         &trans                         &trans                         &trans                         &trans
-         &trans   &trans   &trans   &trans   &trans  &trans  &trans                         &trans                         &trans                         &trans
-&trans   &trans   &trans                                                                                                   &trans                         &trans                         &trans
-&trans   &trans   &trans   &trans   &trans                   &trans                         &trans                         &trans                         &trans                         &trans
+&kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3
+&kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &sys_reset &bootloader &bt BT_CLR &bt BT_CLR_ALL &trans
+&kp F11 &kp F12 &kp F13 &kp F14 &kp F15 &zip_dyn_scale ZDS_XY ZDS_INC &zip_dyn_scale ZDS_XY ZDS_DEC &zip_dyn_scale ZDS_SC ZDS_INC &zip_dyn_scale ZDS_SC ZDS_DEC &zip_dyn_scale ZDS_ALL ZDS_RST
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
             >;
         };
     };
