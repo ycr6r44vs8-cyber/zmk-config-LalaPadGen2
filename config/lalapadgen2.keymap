@@ -208,6 +208,13 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
+
+        td_comma_dot: td_comma_dot {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_COMMA_DOT";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp DOT>;
+        };
     };
 
     combos {
@@ -237,7 +244,7 @@
             bindings = <
 &td_q1 N1 Q    &td_w2 N2 W   &td_e3 N3 E    &td_r4 N4 R    &td_t5 N5 T                             &kp Y       &kp U     &kp I           &kp O           &kp P
 &td_a6 N6 A    &td_s7 N7 S   &td_d8 N8 D    &td_f9 N9 F    &td_g0 N0 G                             &kp H       &kp J     &kp K           &kp L           &mt2 EQUAL MINUS
-&td_z EQUAL Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N       &kp M     &kp COMMA       &kp PERIOD      &kp EXCLAMATION
+&td_z EQUAL Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N       &kp M     &td_comma_dot   &kp PERIOD      &kp EXCLAMATION
 &kp LSHFT      &kp LEFT_GUI  &kp RIGHT_ALT  &mo 1          &to 2         &kp SPACE  &kp BACKSPACE  &kp RETURN  &mo 2     &kp LANGUAGE_2  &kp LANGUAGE_1  &kp QUESTION
                &none         &kp RIGHT      &kp DOWN       &kp LEFT      &kp UP     &kp UP         &kp LEFT    &kp DOWN  &kp RIGHT       &none
 &mkp LCLK      &mkp RCLK     &mkp MCLK                                                                                   &mkp LCLK       &mkp RCLK       &mkp MCLK
@@ -248,7 +255,7 @@
         SECONDARY_LAYER {
             display-name = "secondary_layer";
             bindings = <
-&kp NUMBER_1          &kp NUMBER_2           &kp NUMBER_3      &kp NUMBER_4       &kp N5                                 &kp NUMBER_6      &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
+&kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR         &kp PERCENT                            &kp CARET         &kp AMPERSAND      &kp ASTERISK     &trans           &trans
 &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans                                 &trans            &kp KP_NUMBER_4    &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
 &kp SEMICOLON         &kp F7                 &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                   &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
 &trans                &trans                 &trans            &trans             &trans                &trans  &kp DEL  &trans            &trans             &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_DIVIDE
