@@ -217,7 +217,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&macro_dot>, <&kp>;
         };
     };
 
@@ -225,19 +225,26 @@
         macro_paren: macro_paren {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(N9) &kp LS(N0) &kp LEFT>;
+            bindings = <&kp LANG2 &kp LS(N9) &kp LS(N0) &kp LEFT &kp LANG1>;
         };
 
         macro_kagi: macro_kagi {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+            bindings = <&kp LANG1 &kp LBKT &kp RBKT &kp ENTER &kp LEFT>;
         };
 
         macro_nakaguro: macro_nakaguro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp SLASH>;
+        };
+
+        macro_dot: macro_dot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp DOT &kp LANG1>;
+            label = "MACRO_DOT";
         };
     };
 
