@@ -173,7 +173,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&new_macromacro_plus>, <&kp>;
         };
 
         td_c: td_c {
@@ -181,10 +181,10 @@
             label = "TD_C";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&new_macromacro_minus>, <&kp>;
         };
 
         td_v: td_v {
@@ -192,10 +192,10 @@
             label = "TD_V";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&new_macromacro_star>, <&kp>;
         };
 
         td_b: td_b {
@@ -206,7 +206,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&new_macromacro_slash>, <&kp>;
         };
 
         td_comma_dot: td_comma_dot {
@@ -246,6 +246,41 @@
             bindings = <&kp LANG2 &kp DOT &kp LANG1>;
             label = "MACRO_DOT";
         };
+
+        new_macromacro_minus: new_macromacro_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp MINUS &kp LANG1>;
+            label = "NEW_MACROMACRO_MINUS";
+        };
+
+        new_macromacro_equal: new_macromacro_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp EQUAL &kp LANG1>;
+            label = "NEW_MACROMACRO_EQUAL";
+        };
+
+        new_macromacro_plus: new_macromacro_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp LS(EQUAL) &kp LANG1>;
+            label = "NEW_MACROMACRO_PLUS";
+        };
+
+        new_macromacro_star: new_macromacro_star {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp LS(N8) &kp LANG1>;
+            label = "NEW_MACROMACRO_STAR";
+        };
+
+        new_macromacro_slash: new_macromacro_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANG2 &kp SLASH &kp LANG1>;
+            label = "NEW_MACROMACRO_SLASH";
+        };
     };
 
     combos {
@@ -267,12 +302,12 @@
         };
 
         COMBO_ZX_EQUAL {
-            bindings = <&kp EQUAL>;
+            bindings = <&new_macromacro_equal>;
             key-positions = <20 21>;
         };
 
         COMBO_THUMB_TO2 {
-            bindings = <&to 2>;
+            bindings = <&tog 2>;
             key-positions = <33 34>;
         };
     };
@@ -296,13 +331,13 @@
         SECONDARY_LAYER {
             display-name = "secondary_layer";
             bindings = <
-&kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR         &kp PERCENT                            &kp CARET         &kp AMPERSAND      &kp ASTERISK     &trans           &trans
-&kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans                                 &trans            &kp KP_NUMBER_4    &kp KP_NUMBER_5  &macro_paren     &macro_kagi
-&kp SEMICOLON         &macro_nakaguro        &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                   &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
-&trans                &trans                 &trans            &trans             &trans                &trans  &kp DEL  &trans            &trans             &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_DIVIDE
-                      &trans                 &trans            &trans             &trans                &trans  &trans   &trans            &trans             &trans           &trans
-&trans                &trans                 &trans                                                                                                           &trans           &trans           &trans
-&kp LC(LG(LEFT))      &kp LC(LG(RIGHT))      &trans            &trans             &trans                                 &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans           &trans           &trans
+&kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR         &kp PERCENT                                    &kp CARET         &kp AMPERSAND      &kp ASTERISK     &trans           &trans
+&kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans                                         &trans            &kp KP_NUMBER_4    &kp KP_NUMBER_5  &macro_paren     &macro_kagi
+&kp SEMICOLON         &macro_nakaguro        &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                           &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
+&trans                &trans                 &trans            &trans             &trans                &trans  &kp DEL          &trans            &trans             &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_DIVIDE
+                      &trans                 &trans            &trans             &trans                &trans  &kp K_VOLUME_UP  &trans            &kp K_VOLUME_DOWN  &trans           &trans
+&trans                &trans                 &trans                                                                                                                   &trans           &trans           &trans
+&kp LC(LG(LEFT))      &kp LC(LG(RIGHT))      &trans            &trans             &trans                                         &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans           &trans           &trans
             >;
         };
 
@@ -312,7 +347,7 @@
 &kp Q         &kp W             &kp E             &kp R   &kp T                      &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5
 &kp A         &kp S             &kp D             &kp F   &kp G                      &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0
 &kp Z         &kp X             &kp C             &kp V   &kp B                      &kp N         &kp LANG1     &trans        &mkp MB5      &kp PAUSE_BREAK
-&kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_COMMAND  &trans  &to 0   &kp SPACE  &trans  &trans        &trans        &trans        &trans        &trans
+&kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_COMMAND  &mo 1   &to 0   &kp SPACE  &trans  &trans        &trans        &trans        &trans        &trans
               &trans            &trans            &trans  &trans  &trans     &trans  &trans        &trans        &trans        &trans
 &trans        &trans            &trans                                                                           &trans        &trans        &trans
 &trans        &trans            &trans            &trans  &trans                     &trans        &trans        &trans        &trans        &trans
