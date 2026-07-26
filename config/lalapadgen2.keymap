@@ -219,6 +219,17 @@
             require-prior-idle-ms = <125>;
             bindings = <&macro_dot>, <&kp>;
         };
+
+        td_excl: td_excl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TD_EXCL";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            bindings = <&macro_nakaguro>, <&kp>;
+        };
     };
 
     macros {
@@ -320,7 +331,7 @@
             bindings = <
 &td_q1 N1 Q    &td_w2 N2 W   &td_e3 N3 E    &td_r4 N4 R    &td_t5 N5 T                             &kp Y       &kp U            &kp I                    &kp O           &kp P
 &td_a6 N6 A    &td_s7 N7 S   &td_d8 N8 D    &td_f9 N9 F    &td_g0 N0 G                             &kp H       &kp J            &kp K                    &kp L           &mt2 EQUAL MINUS
-&td_z LSHFT Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N       &kp M            &td_comma_dot DOT COMMA  &kp PERIOD      &kp EXCLAMATION
+&td_z LSHFT Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N       &kp M            &td_comma_dot DOT COMMA  &kp PERIOD      &td_excl 0 EXCLAMATION
 &kp LSHFT      &kp LEFT_GUI  &kp RIGHT_ALT  &mo 1          &kp RETURN    &kp SPACE  &kp BACKSPACE  &kp RETURN  &kp RIGHT_SHIFT  &kp LANGUAGE_2           &kp LANGUAGE_1  &kp QUESTION
                &none         &kp RIGHT      &kp DOWN       &kp LEFT      &kp UP     &kp UP         &kp LEFT    &kp DOWN         &kp RIGHT                &none
 &mkp LCLK      &mkp RCLK     &mkp MCLK                                                                                          &mkp LCLK                &mkp RCLK       &mkp MCLK
