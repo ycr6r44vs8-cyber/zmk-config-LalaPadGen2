@@ -316,6 +316,16 @@
             bindings = <&new_macromacro_equal>;
             key-positions = <20 21>;
         };
+
+        ctrl+C {
+            bindings = <&kp LC(C)>;
+            key-positions = <31 32>;
+        };
+
+        ctrl+V {
+            bindings = <&kp LC(V)>;
+            key-positions = <32 33>;
+        };
     };
 
     keymap {
