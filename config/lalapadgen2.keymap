@@ -317,12 +317,12 @@
             key-positions = <20 21>;
         };
 
-        ctrl+C {
+        ctrl_C {
             bindings = <&kp LC(C)>;
             key-positions = <31 32>;
         };
 
-        ctrl+V {
+        ctrl_V {
             bindings = <&kp LC(V)>;
             key-positions = <32 33>;
         };
