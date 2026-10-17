@@ -248,7 +248,7 @@
         macro_nakaguro: macro_nakaguro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SLASH>;
+            bindings = <&kp LANG1 &kp SLASH>;
         };
 
         macro_dot: macro_dot {
@@ -334,13 +334,13 @@
         DEFAULT_LAYER {
             display-name = "Default";
             bindings = <
-&kp Q          &kp W         &kp E          &kp R          &kp T                                   &td_q1 N1 Y               &td_w2 N2 U  &td_e3 NUMBER_3 I        &td_r4 N4 O     &td_t5 N5 P
-&kp A          &kp S         &kp D          &kp F          &kp G                                   &td_a6 N6 H               &td_s7 N7 J  &td_d8 N8 K              &td_f9 N9 L     &td_g0 N0 MINUS
-&td_z LSHFT Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &td_z RS(RG(NUMBER_4)) N  &kp M        &td_comma_dot DOT COMMA  &kp PERIOD      &td_excl 0 EXCLAMATION
-&kp LSHFT      &kp LEFT_GUI  &kp RIGHT_ALT  &mo 1          &kp RETURN    &kp SPACE  &kp BACKSPACE  &kp RETURN                &mo 3        &kp LANGUAGE_2           &kp LANGUAGE_1  &kp QUESTION
-               &none         &kp RIGHT      &kp DOWN       &kp LEFT      &kp UP     &kp UP         &kp LEFT                  &kp DOWN     &kp RIGHT                &none
-&mkp LCLK      &mkp RCLK     &mkp MCLK                                                                                                    &mkp LCLK                &mkp RCLK       &mkp MCLK
-&mkp MB4       &mkp MB5      &kp LG(TAB)    &kp LG(D)      &kp LCTRL                               &mkp MB4                  &mkp MB5     &kp LG(TAB)              &kp LG(D)       &kp LCTRL
+&kp Q          &kp W         &kp E          &kp R          &kp T                                   &td_q1 N1 Y  &td_w2 N2 U  &td_e3 NUMBER_3 I        &td_r4 N4 O     &td_t5 N5 P
+&kp A          &kp S         &kp D          &kp F          &kp G                                   &td_a6 N6 H  &td_s7 N7 J  &td_d8 N8 K              &td_f9 N9 L     &td_g0 N0 MINUS
+&td_z LSHFT Z  &td_x PLUS X  &td_c MINUS C  &td_v ASTRK V  &td_b FSLH B                            &kp N        &kp M        &td_comma_dot DOT COMMA  &kp PERIOD      &td_excl 0 EXCLAMATION
+&kp LSHFT      &kp LEFT_GUI  &kp RIGHT_ALT  &mo 1          &kp RETURN    &kp SPACE  &kp BACKSPACE  &kp RETURN   &mo 3        &kp LANGUAGE_2           &kp LANGUAGE_1  &kp QUESTION
+               &none         &kp RIGHT      &kp DOWN       &kp LEFT      &kp UP     &kp UP         &kp LEFT     &kp DOWN     &kp RIGHT                &none
+&mkp LCLK      &mkp RCLK     &mkp MCLK                                                                                       &mkp LCLK                &mkp RCLK       &mkp MCLK
+&mkp MB4       &mkp MB5      &kp LG(TAB)    &kp LG(D)      &kp LCTRL                               &mkp MB4     &mkp MB5     &kp LG(TAB)              &kp LG(D)       &kp LCTRL
             >;
         };
 
@@ -349,7 +349,7 @@
             bindings = <
 &kp EXCLAMATION       &kp AT_SIGN            &kp HASH          &kp DOLLAR         &kp PERCENT                                    &kp CARET         &kp AMPERSAND      &kp ASTERISK     &trans           &trans
 &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans                                         &trans            &kp KP_NUMBER_4    &kp KP_NUMBER_5  &macro_paren     &macro_kagi
-&kp SEMICOLON         &macro_nakaguro        &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                           &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
+&kp COLON             &macro_nakaguro        &kp F8            &kp LANG2          &kp LS(LG(NUMBER_4))                           &trans            &kp KP_NUMBER_1    &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
 &trans                &trans                 &trans            &trans             &trans                &trans  &kp DEL          &trans            &trans             &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_DIVIDE
                       &trans                 &trans            &trans             &trans                &trans  &kp K_VOLUME_UP  &trans            &kp K_VOLUME_DOWN  &trans           &trans
 &trans                &trans                 &trans                                                                                                                   &trans           &trans           &trans
